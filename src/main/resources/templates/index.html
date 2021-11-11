@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Spring Boot 2</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>Hola</h1>
+    <p th:text="${mensaje}"></p>
+    <p th:text="${saludo}"></p>
+    <br />
+    <div th:if="${persona != null and !personas.empty}">
+      <table border="1">
+        <tr>
+          <th>Nombre:</th>
+          <th>Apellido:</th>
+          <th>Email:</th>
+          <th>Telefono:</th>
+        </tr>
+
+        <tr th:each="persona : ${personas}">
+          <td>
+            <span th:text="${persona.nombre}"></span>
+          </td>
+
+          <td>
+            <span th:text="${persona.apellido}"></span>
+          </td>
+
+          <td>
+            <span th:text="${persona.email}"></span>
+          </td>
+
+          <td>
+            <span th:text="${persona.telefono}"></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div th:if="${persona != null and !personas.empty}">
+      La lista de personas esta vacia.
+    </div>
+  </body>
+</html>
