@@ -42,6 +42,19 @@ public class ControllerHome {
         return "redirect:/";
     }
 
+    @GetMapping("editar/{id}")
+    public String editar(Persona persona, Model model){
+        persona = personaService.encontrarPersona(persona);
+        model.addAttribute("persona", persona);
+        return "modificar";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminar(Persona persona){
+        personaService.eliminar(persona);
+        return "redirect:/";
+    }
+
 //    @GetMapping("/")
 //    public String inicio(Model model){
 //        var mensaje = "Hola mundo con Thymeleaf";
