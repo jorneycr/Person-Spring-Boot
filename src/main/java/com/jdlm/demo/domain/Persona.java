@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Data
@@ -21,11 +23,15 @@ public class Persona implements Serializable{
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     @Column
     private long id;
+    @NotEmpty
     @Column
-    private String nombre;
+    private String nombre;    
+    @NotEmpty
     @Column
     private String apellido;
     @Column
+    @NotEmpty
+    @Email
     private String email;
     @Column
     private String telefono;
